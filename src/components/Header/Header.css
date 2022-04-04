@@ -1,0 +1,38 @@
+.nav-bar{
+    padding-top: 10px;
+}
+
+.logo-text{
+    font-family: Quicksand;
+    color: #000000;
+    font-weight: 700;
+}
+.logo-text span{
+    color: #F46A06;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.nav-link{
+    font-family: Roboto;
+    font-weight: 700;
+}
+
+.nav-link:hover{
+    color: #F46A06 !important;
+}
+
+.active-link{
+    color: #F46A06;
+    
+    text-decoration: none !important;
+    font-weight: 700;
+    font-family: Roboto;
+}
+
+.active-link:hover{
+   color: #F46A06 !important;
+}
+
