@@ -1,0 +1,252 @@
+
+
+body{
+    font-family:"sans-serif";
+}
+.head {
+    color:rgb(8, 8, 92);
+}
+.card-3{
+     height:400px;
+     border:1px solid pink;
+     background-color:pink; 
+     border-radius:20px;
+    box-shadow: 0 20px 20px 5px rgb(219, 178, 185);
+    
+     
+   
+}
+.nav-link::after {
+  content: '';
+width: 0%;
+height: 3px;
+background-color: orangered;
+display: block;
+margin: auto;
+}
+.nav-item :hover::after {
+  width: 100%;
+  transition: 0.3s;
+}
+li{
+    list-style: none;
+}
+
+.banner img{
+    width:100vw;
+    height:80vh;
+    object-fit: cover;
+}
+
+.footer-section{
+    background-color: #0B0D17;
+    height: 350px;
+}
+.lime{
+    color: lime;
+}
+.footer-icons {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    
+}
+.footer-icons a {
+    text-decoration: none;
+    
+}
+/* .navbar-brand{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+} */
+.carousel-item{
+    position: relative;
+}
+.carousel-texts{
+    position: absolute;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+}
+
+.change:hover{
+
+    background-color:lavenderblush;
+   
+    border-radius: 15px;
+    transition: transform .2s;
+    transform: scale(1.2);
+    padding-top: 10px;
+}
+#div2:hover{
+    background-color:lavender;
+   
+    border-radius: 15px;
+    transition: transform .2s;
+    transform: scale(1.2);
+    padding-top: 10px;
+}
+
+#div4:hover{
+    background-color:lightcyan;
+   
+    border-radius: 15px;
+    transition: transform .2s;
+    transform: scale(1.2);
+    padding-top: 10px;
+}
+#pa:hover{
+    transition: transform .2s;
+    transform: scale(1.2);
+    color:black;
+    background-color:lightskyblue;
+    border-radius:20px;
+ 
+}
+#review1:hover{
+    transition: transform .2s;
+    transform: scale(1.2);
+    color:black;
+    background-color:lightcyan;
+    border-radius:20px;
+}
+#review2:hover{
+    transition: transform .2s;
+    transform: scale(1.2);
+    color:black;
+background-color:lightblue;
+    border-radius:20px;
+}
+
+#div3:hover{
+    transition: transform .2s;
+    transform: scale(1.2);
+
+}
+
+div.elem-group {
+    margin: 20px 0;
+  }
+  
+  div.elem-group.inlined {
+    width: 49%;
+    float : left;
+    display: inline-block;
+   
+    margin-left: 1%;
+  }
+  
+  label {
+    display: block;
+    
+    padding-bottom: 10px;
+    font-size: 1.25em;
+  }
+  
+  input, select, textarea {
+    border-radius: 2px;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    
+    width: 100%;
+    padding: 10px;
+  }
+  
+  div.elem-group.inlined input {
+    width: 95%;
+    display: inline-block;
+  }
+  
+  textarea {
+    height: 250px;
+  }
+  
+  hr {
+    border: 1px dotted #ccc;
+  }
+  
+ .changeBtn {
+    height: 50px;
+    background: transparent;
+    border: 5px solid cornflowerblue ;
+    color:black;
+    font-size: 1.25em;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .changeBtn:hover {
+   background-color: rgb(204, 158, 235);
+   color: black;
+   
+  }
+
+
+  
+  .pic:hover {
+    transition: transform .5s;
+    transform: scale(1.2);
+  }
+  .myDIV:hover + .hide {
+    display: block;
+    color: red;
+  }
+
+  .hide {
+    display: none;
+  }
+ .modal-form{
+  
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* bottom: 0; */
+  top: -100px;
+  bottom: 0;
+  /* left: 0; */
+  /* display: none; */
+  overflow-y: scroll;
+  /* margin-left:50px; */
+  width: 100%;
+  /* height: 697vh; */
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s,  opacity 1s;
+ }
+
+ /* .modal-hide{
+  display: none;
+ } */
+
+ .modal-display{
+  visibility: visible;
+  opacity: 1;
+ }
+
+ /* .modal-box{
+  width: 50%;
+  height: 80vh;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+ 
+ } */
+
+ /* .modal-container{
+   position: fixed;
+ } */
+
+ @media screen and (max-width: 700px) {
+
+   #book{
+    font-size: 15px;
+   }
+ }
+
