@@ -1,0 +1,19 @@
+.form-container{
+    font-family: Manrope;
+    font-weight: 700;
+}
+
+.form-container h1{
+    font-weight: 700;
+}
+
+.sign-up-container{
+    width: 50%;
+}
+
+@media screen and (max-width: 768px){
+    .sign-up-container{
+        width: 90% !important;
+    }
+}
+    

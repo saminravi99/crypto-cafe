@@ -1,0 +1,45 @@
+.review-heading-text{
+    font-family: Quicksand;
+    color: #000000;
+    font-weight: 700;
+}
+
+
+.home-review-container{
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.home-review{
+    font-family: Quicksand;
+    font-weight: 500;
+}
+.home-review-rating{
+    font-family: Quicksand;
+    font-weight: 600;
+}
+
+.home-review-image{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.home-review-name{
+    font-family: Quicksand;
+    font-weight: 700;
+}
+.home-review-date{
+    font-family: Quicksand;
+}
+
+.home-review-star{
+    color: #F46A06;
+
+}
+
+.star-icon{
+    width: 21px;
+    margin-bottom: 4px;
+    color: #F46A06;
+}

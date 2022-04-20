@@ -1,0 +1,22 @@
+.thankyou-container{
+    font-family: Manrope;
+    font-weight: 700;
+    height: 80vh;
+    width: 100%;
+}
+
+.thankyou-container h1{
+    font-weight: 700;
+    text-align: center;
+}
+
+.thankyou-container h3{
+    text-align: center;
+    font-weight: 700;
+}
+
+.thankyou-card{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 50px;
+    border-radius: 10px;
+}

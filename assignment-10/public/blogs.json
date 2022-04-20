@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "name": "Ayon Jodder",
+    "date": "13th June, 2019",
+    "image": "https://cdn.pixabay.com/photo/2014/07/09/10/04/man-388104_960_720.jpg",
+    "blogHeading" : "Difference between Authorization and Authentication",
+    "blog": "The identity of users is verified during the authentication process before they are granted access to the system.Users or individuals are validated throughout the authentication procedure.It is completed prior to the permission procedure.It normally requires the user's login information.Meanwhile, Authentication decides whether or not a person is a user.During the authorization process, the authority of the individual or user to access the resources is verified.Users or individuals are verified throughout this procedure.This procedure is carried out after the authentication procedure.While it necessitates the user's privileges or security levels.While it is determining What rights does the user have?",
+    "blogImage": "https://www.okta.com/sites/default/files/styles/1640w_scaled/public/media/image/2020-10/Authentication_vs_Authorization.png?itok=uBFRCfww"
+  },
+  {
+    "id": 2,
+    "name": "Sabbir Mahmud",
+    "date": "17th July, 2020",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfuSTDCkFtxG2yl9qDYnHEwV6vF6Y9hkbiuzLmOaVoO_jupwImy1-NmP_kd8LiPzaimI8&usqp=CAU",
+    "blogHeading": "Why are you using firebase? What other options do you have to implement authentication?",
+    "blog": "Google Firebase is a  platform for development of web application. It enables you to construct the whole application on the front-end, without having to write any server-side code. It also allows you to put up server-side logic using Firebase Functions if you need to respond to certain events (such as the generation of data or files, login, and https requests) in order to send emails or push alerts, or to process the data after it has been written. Authenticating users into your project is easy using Firebase Authentication, which provides a choice of backend services, simple SDKs, and pre-built UI frameworks. There are several other means of authentication that it allows, including passwords, phone numbers, and well-known federated identity providers such as Google, Facebook, and Twitter.Top Alternatives to Firebase Authentication:1.Auth0. 2.MongoDB. 3.Okta.4.JSON Web Token.5.Amazon Cognito.6.Keycloak.",
+    "blogImage": "https://www.applozic.com/blog/wp-content/uploads/2021/04/image-1.png"
+  },
+
+  {
+    "id": 3,
+    "name": "Ashraful Islam",
+    "date": "26th April, 2018",
+    "image": "https://st.depositphotos.com/1008939/1880/i/600/depositphotos_18807295-stock-photo-portrait-of-handsome-man.jpg",
+    "blogHeading": "What other services does firebase provide other than authentication",
+    "blog": "Firebase offers numerous essential services, including: 1.Cloud Firestore: Cloud Firestore is a scalable and adaptive NoSQL cloud database. It is used to store and sync data in web-based applications. 2.Cloud Functions: A serverless framework that enables you to automatically run backend code in response to events. 3.Firebase Hosting: Firebase Hosting is an optimized online content hosting solution for developers. With one command, you can quickly start web apps and serve static and dynamic content to a worldwide CDN (content delivery network). 4. Firebase Cloud Storage:  It is a cutting-edge technology that allows users of mobile apps to store and manage media made by them. Google 5. Analytics: It can help track user demographics, activity, purchasing patterns, and revenue. 6. Predictions: This tool helps you make predictions about your product choices based on your input. 7. Cloud Messaging: To integrate alerts, regardless of the platform, Firebase is a terrific option to utilize since it is rapid, reliable, and scalable. ",
+    "blogImage": "https://media-exp1.licdn.com/dms/image/C5112AQE5TLnMI4ftXw/article-inline_image-shrink_1000_1488/0/1520213699817?e=2147483647&v=beta&t=TRH1_FAZHO5lKJWUpsvu9xKKd6BA7evvBFzMyYeufR8"
+  }
+ 
+]

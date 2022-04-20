@@ -1,0 +1,23 @@
+.service-container{
+    font-family: Manrope;
+}
+.service-container h4{
+    font-weight: 700;
+}
+.service-container h6{
+    font-weight: 700;
+}
+.service-card{
+    transition: transform .5s, box-shadow .5s;
+}
+
+.service-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.service-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}

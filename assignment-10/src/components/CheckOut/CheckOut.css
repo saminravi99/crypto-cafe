@@ -1,0 +1,48 @@
+.checkout-container{
+    width: 50%;
+}
+
+.select{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.checkout-labels{
+    font-family: Manrope;
+    font-weight: 700;
+}
+
+.back-btn{
+    font-size: 40px;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.checkout-service{
+    width: 50%;
+}
+
+.checkout-service-card{
+    width: 25rem;
+}
+
+
+@media screen and (max-width: 768px){
+    .checkout-container{
+        width: 90%;
+    }
+
+    .checkout-service{
+        width: 100%;
+    }
+
+    .checkout-service-card{
+        width: 18rem;
+    }
+}   
