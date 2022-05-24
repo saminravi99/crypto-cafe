@@ -1,0 +1,18 @@
+.banner-info {
+    width: 70%;
+}
+
+.banner-info > h1, h6{
+    font-family: "Ubuntu", sans-serif !important;
+}
+
+.banner-info > h6{
+    line-height: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .banner-info {
+        width: 100%;
+    }
+}
+    

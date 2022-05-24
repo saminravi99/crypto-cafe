@@ -1,0 +1,103 @@
+.back-btn {
+  font-size: 40px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.tool-img {
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+}
+
+.card-body {
+  padding: 10px;
+  height: 320px;
+}
+
+.card-text {
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+
+.description {
+  font-weight: 700;
+}
+
+.card-container{
+  width: 80%;
+
+}
+
+.tool-price {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: 1px solid #a7c0e9;
+  background-color: azure;
+}
+
+.second-section-left {
+  font-family: "DM Sans";
+}
+
+.second-section-headline {
+  color: #193766;
+}
+
+.second-section-paragraph {
+  color: #697b98;
+}
+
+.img-right {
+  width: 800px;
+  height: 800px;
+  padding: 10px;
+}
+
+.third-section-paragraph {
+  font-family: "DM Sans";
+  font-weight: 700;
+  width: 50%;
+  margin: 20px auto;
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    margin-top: 280px !important;
+  }
+  .img-right {
+    width: 420px;
+    height: 420px;
+  }
+  .second-section-right {
+    background-image: linear-gradient(
+      180deg,
+      #e4efff,
+      rgba(228, 239, 255, 0.6),
+      rgba(228, 239, 255, 0)
+    );
+  }
+  .second-section {
+    overflow-x: hidden !important;
+  }
+  .third-section-headline {
+    font-family: "DM Sans";
+  }
+  .third-section-paragraph {
+    width: 90%;
+    margin: 20px auto;
+  }
+  .card-body {
+    height: 100%;
+  }
+  .book-price {
+    font-size: 10px;
+    width: 90px;
+    padding: 5px 10px;
+    border-radius: 25px;
+    border: 1px solid #a7c0e9;
+    background-color: azure;
+  }
+}
