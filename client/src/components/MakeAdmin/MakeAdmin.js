@@ -17,7 +17,7 @@ const MakeAdmin = () => {
 
   const handleMakeAdmin = (email) => {
     setReload(true);
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://manufacturer-xpart.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const MakeAdmin = () => {
       return;
     }
     setReload(true);
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://manufacturer-xpart.herokuapp.com/user/admin/${email}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

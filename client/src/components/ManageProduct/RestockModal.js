@@ -22,7 +22,7 @@ const RestockModal = (props) => {
 
   const handleUpdateStock = (e) => {
       setReloadModal(true);
-    fetch(`http://localhost:5000/product/${restockId}`, {
+    fetch(`https://manufacturer-xpart.herokuapp.com/product/${restockId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

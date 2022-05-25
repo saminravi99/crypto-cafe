@@ -16,49 +16,56 @@ const ManageOrders = () => {
   const [allOrders, setAllOrders, isLoading] = useAllOrders(reload);
   const [tools, setTools] = useTools(reload);
 
-  const handleDeliver = async (id, toolName, requiredQuantity, quantity) => {
-    console.log(id);
-    setReload(true);
-    axiosPrivate
-      .put(
-        `http://localhost:5000/orders/${id}`,
-        { isDelivered: true },
-        {
-          headers: {
-            email: authUser.email,
-          },
-        }
-      )
-      .then(({ data }) => {
-        if (data.modifiedCount) {
-          console.log(data);
-          // find the tool from trools array by toolName of that orders
-          const requiredTool = tools.find((tool) => tool.toolName === toolName);
-          console.log(requiredTool.toolName);
-          // update the tool quantity
-          const newTool = {
-            availableQuantity: (
-              parseInt(requiredTool.availableQuantity) -
-              parseInt(requiredQuantity)
-            ).toString(),
-          };
-          fetch(`http://localhost:5000/product/${requiredTool._id}`, {
-            method: "PUT",
+  const handleDeliver = async (id, toolName, requiredQuantity, quantity, isPaid) => {
+    if(isPaid){
+      console.log(id);
+      setReload(true);
+      axiosPrivate
+        .put(
+          `https://manufacturer-xpart.herokuapp.com/orders/${id}`,
+          { isDelivered: true },
+          {
             headers: {
-              "Content-Type": "application/json",
-              email: `${authUser?.email}`,
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              email: authUser.email,
             },
-            body: JSON.stringify(newTool),
-          })
-            .then((response) => response.json())
-            .then((json) => {
-              console.log(json);
-              setReload(false);
-              toast.success("Order Delivered");
-            });
-        }
-      });
+          }
+        )
+        .then(({ data }) => {
+          if (data.modifiedCount) {
+            console.log(data);
+            // find the tool from trools array by toolName of that orders
+            const requiredTool = tools.find(
+              (tool) => tool.toolName === toolName
+            );
+            console.log(requiredTool.toolName);
+            // update the tool quantity
+            const newTool = {
+              availableQuantity: (
+                parseInt(requiredTool.availableQuantity) -
+                parseInt(requiredQuantity)
+              ).toString(),
+            };
+            fetch(`https://manufacturer-xpart.herokuapp.com/product/${requiredTool._id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                email: `${authUser?.email}`,
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(newTool),
+            })
+              .then((response) => response.json())
+              .then((json) => {
+                console.log(json);
+                setReload(false);
+                toast.success("Order Delivered");
+              });
+          }
+        });
+    }
+    else{
+      toast.error("Order is not paid yet!");
+    }
   };
 
   const reversedOrders = [...allOrders].reverse();
@@ -130,7 +137,7 @@ const ManageOrders = () => {
             ) : (
               <button
                 onClick={() =>
-                  handleDeliver(_id, toolName, requiredQuantity, quantity)
+                  handleDeliver(_id, toolName, requiredQuantity, quantity, isPaid)
                 }
                 className="btn btn-primary d-block mx-auto rounded-pill"
               >

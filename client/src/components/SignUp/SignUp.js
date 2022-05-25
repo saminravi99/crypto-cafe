@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import "./SignUp.css";
 
@@ -24,6 +24,8 @@ const SignUp = () => {
     }
   );
 
+  const [updateProfile] = useUpdateProfile(auth);
+
   //Using React Router DOM
   const navigate = useNavigate();
 
@@ -33,7 +35,7 @@ const SignUp = () => {
   };
 
   //Using Function to Sign Up User with Email and Password
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     //Validating Password and Confirm Password
@@ -58,8 +60,9 @@ const SignUp = () => {
       return;
     }
 
-    //Creating User with Email and Password
-    createUserWithEmailAndPassword(email, password);
+    //Creating User with Email and Password and Update the user Name to firebase
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
     navigate("/");
   };
 

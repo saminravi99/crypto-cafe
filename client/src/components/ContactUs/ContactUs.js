@@ -40,10 +40,10 @@ const ContactUs = () => {
       <div>
         <div>
           <div className="d-flex justify-content-center align-items-center about-me-title mt-lg-4">
-            <h1>Our Motto</h1>
+            <h1 className="mt-lg-0 mt-4">Our Motto</h1>
           </div>
-          <div className="d-flex flex-lg-row flex-column-reverse justify-content-center align-items-center container  about-me-container mt-4">
-            <div className="about-me-text-container mx-auto mt-lg-0 my-lg-0 my-5">
+          <div className="d-flex flex-lg-row flex-column-reverse justify-content-center align-items-center container  about-me-container  mt-lg-4">
+            <div className="about-me-text-container mx-auto my-lg-0 my-1">
               <p>
                 We are leading tools manufacturer. We have a market share of
                 40%. We are very selective of which tools to sell in where and

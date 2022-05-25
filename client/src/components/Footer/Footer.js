@@ -49,10 +49,11 @@ const Footer = () => {
             <div class="col-md-6 item text">
               <h3>Company Name</h3>
               <p>
-                Praesent sed lobortis mi. Suspendisse vel placerat ligula.
-                Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis
-                tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel
-                in justo.
+                We are the best tools supplier in Bangladesh and we are growing
+                bigger. We have laid a fantastic foundation for our company to
+                grow bigger. There is no need to change anything as we have
+                given that infrastructure already. We were already the best in
+                the business and there is no need to strive for better.
               </p>
             </div>
             <div class="col item social">

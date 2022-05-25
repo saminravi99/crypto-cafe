@@ -67,7 +67,7 @@ const ReviewModal = (props) => {
         <Button
           className="btn btn-success d-block mx-auto px-5"
           onClick={async () => {
-            fetch("http://localhost:5000/review", {
+            fetch("https://manufacturer-xpart.herokuapp.com/review", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const ReviewModal = (props) => {
               .then((response) => response.json())
               .then((json) => {
                 console.log(json);
-                fetch(`http://localhost:5000/orders/${reviewOrderId}`, {
+                fetch(`https://manufacturer-xpart.herokuapp.com/orders/${reviewOrderId}`, {
                   method: "PUT",
                   headers: {
                     "Content-Type": "application/json",

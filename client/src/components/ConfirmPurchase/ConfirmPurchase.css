@@ -63,10 +63,9 @@
   margin: 20px auto;
 }
 
+
 @media screen and (max-width: 768px) {
-  .home-container {
-    margin-top: 280px !important;
-  }
+
   .img-right {
     width: 420px;
     height: 420px;
@@ -100,4 +99,9 @@
     border: 1px solid #a7c0e9;
     background-color: azure;
   }
+  /* .confirm-purchase-info{
+    width: 65vh;
+    margin-left: auto;
+    margin-right: auto;
+  } */
 }

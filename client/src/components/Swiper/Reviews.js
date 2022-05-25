@@ -59,7 +59,7 @@ export default function App() {
           >
             <div>
               {reversedReviews.map(({ user, review, userImage, rating }) => (
-                <SwiperSlide className="pb-4 pt-2" key={review?.id}>
+                <SwiperSlide className="pb-5 pt-2" key={review?.id}>
                   <Card className=" shadow review-card border-0 ">
                     <Card.Body>
                       <Card.Title>
@@ -93,7 +93,7 @@ export default function App() {
                               ))}
                           </div>
                         </div>
-                        <i className="review text-muted">"{review}"</i>
+                        <i className="review text-muted">"{review.slice(0,150)}"</i>
                       </Card.Text>
                     </Card.Body>
                   </Card>

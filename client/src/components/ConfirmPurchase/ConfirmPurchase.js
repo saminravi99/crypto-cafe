@@ -20,11 +20,12 @@ const ConfirmPurchase = () => {
   const [totalPrice, setTotalPrice] = useState("");
   const handleGoBack = () => {
     navigate(-1);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
     axiosPrivate
-      .get(`http://localhost:5000/tools/${params.id}`, {
+      .get(`https://manufacturer-xpart.herokuapp.com/tools/${params.id}`, {
         headers: {
           email: authUser?.email,
         },
@@ -85,7 +86,7 @@ const ConfirmPurchase = () => {
     
     axiosPrivate
       .post(
-        "http://localhost:5000/orders",
+        "https://manufacturer-xpart.herokuapp.com/orders",
         userOrder,
         {
           headers: {
@@ -114,9 +115,9 @@ const ConfirmPurchase = () => {
         <FontAwesomeIcon icon={faArrowLeft} />
       </div>
 
-      <div className="d-flex flex-lg-row flex-column justify-content-around align-items-center   container mx-auto">
-        <div className="update-stock-info mx-5">
-          <div className="card card-container mt-lg-5 mb-5">
+      <div className="d-flex flex-lg-row flex-column justify-content-around align-items-center   container ">
+        <div className="confirm-purchase-info mx-lg-5">
+          <div className="card mx-auto mt-lg-5 mb-5">
             <div className="mx-auto">
               <img className="tool-img" src={toolImage} alt="bookName" />
             </div>
@@ -137,7 +138,15 @@ const ConfirmPurchase = () => {
                 </span>
               </p>
               <h6 className="card-text mb-3 text-center">
-                Available Quantity : {availableQuantity}
+                {parseInt(availableQuantity) === 0 ? (
+                  <span className="text-danger">
+                    <strong>Out Of Stock</strong>
+                  </span>
+                ) : (
+                  <small className="text-muted">
+                    <strong>Available Quantity: {availableQuantity}</strong>
+                  </small>
+                )}
               </h6>
             </div>
           </div>
@@ -198,6 +207,7 @@ const ConfirmPurchase = () => {
                 name="quantity"
                 placeholder="Number of Stock"
                 required
+                disabled={parseInt(availableQuantity) === 0 ? true : false}
               />
               <p className="text-danger mt-2">
                 {error && requiredQuantity ? error : null}
@@ -234,7 +244,9 @@ const ConfirmPurchase = () => {
       <div className="my-5">
         <button
           onClick={handleSubmit}
-          disabled={error ? true : false}
+          disabled={
+            error ? true : parseInt(availableQuantity) === 0 ? true : false
+          }
           className="btn btn-success d-block mx-auto px-5"
         >
           Confirm Your Order

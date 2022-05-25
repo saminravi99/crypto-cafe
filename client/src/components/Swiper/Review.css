@@ -9,8 +9,11 @@
 
 .review-card{
     width: 500px !important;
-
 }
+
+/* .swiper-slider{
+    padding-bottom: 800px !important;
+} */
 
 @media screen and (max-width: 768px) {
     .review-card{

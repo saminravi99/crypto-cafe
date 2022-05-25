@@ -1,11 +1,11 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import auth from "../firebase.init";
-import "./AddProduct.css";
-import { useForm } from "react-hook-form";
 import useTools from "../hooks/useTools";
+import "./AddProduct.css";
 
 const AddProduct = () => {
 
@@ -59,7 +59,7 @@ const AddProduct = () => {
                availableQuantity: data.availableQuantity,
                toolDescription: data.toolDescription,
              };
-             fetch("http://localhost:5000/product", {
+             fetch("https://manufacturer-xpart.herokuapp.com/product", {
                method: "POST",
                headers: {
                  "content-type": "application/json",

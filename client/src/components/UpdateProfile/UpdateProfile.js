@@ -15,7 +15,7 @@ const UpdateProfile = () => {
   console.log(user);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${authUser?.email}`, {
+    fetch(`https://manufacturer-xpart.herokuapp.com/user/${authUser?.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const UpdateProfile = () => {
                 "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
             };
             console.log(userInfo);
-            fetch(`http://localhost:5000/update/user/${authUser.email}`, {
+            fetch(`https://manufacturer-xpart.herokuapp.com/update/user/${authUser.email}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
@@ -86,8 +86,7 @@ const UpdateProfile = () => {
                     "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
                 });
                 reset();
-                navigate("/dashboard/my-profile");
-                window.scrollTo(0, 0);
+               
               });
           }
         });
@@ -104,7 +103,7 @@ const UpdateProfile = () => {
           "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
       };
       console.log(userInfo);
-      fetch(`http://localhost:5000/update/user/${authUser.email}`, {
+      fetch(`https://manufacturer-xpart.herokuapp.com/update/user/${authUser.email}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -125,47 +124,17 @@ const UpdateProfile = () => {
               "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
           });
           reset();
-          navigate("/dashboard/my-profile");
-          window.scrollTo(0, 0);
+          
         });
     }
     console.log(data);
-    // const userInfo = {
-    //   displayName: data.displayName || authUser.displayName,
-    //   institution: data.institution || "N/A",
-    //   phoneNumber: data.phoneNumber || "N/A",
-    //   address: data.address || "N/A",
-    //   dateOfBirth: data.dateOfBirth || "N/A",
-    // }
-    // console.log(userInfo);
-    // fetch(`http://localhost:5000/update/user/${authUser.email}`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     email: `${authUser?.email}`,
-    //     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    //   },
-    //   body: JSON.stringify(userInfo),
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //     toast.success("Profile Updated Successfully");
-    //     updateProfile({
-    //       displayName: data?.displayName || "N/A",
-    //       photoURL:
-    //         data?.photoURL ||
-    //         "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
-    //     });
-    //     reset();
-    //     navigate('/dashboard/my-profile');
-    //   });
+    
   };
 
   return (
     <div>
       <h2 className="text-center text-success my-4">Update Your Profile</h2>
-      <Form onSubmit={handleSubmit(onSubmit)} className="w-50 mx-auto mb-5">
+      <Form onSubmit={handleSubmit(onSubmit)} className="update-form mx-auto mb-5">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Your Name</Form.Label>
           <Form.Control

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axiosPrivate from "../../api/axiosPrivate";
 import auth from "../firebase.init";
 // import useOrders from "../hooks/useOrders";
@@ -31,7 +31,7 @@ const MyOrders = () => {
   // React Hook for Fetching All Books From The Server API
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/orders/${authUser?.email}`, {
+    fetch(`https://manufacturer-xpart.herokuapp.com/orders/${authUser?.email}`, {
       headers: {
         "Content-Type": "application/json",
         email: `${authUser?.email}`,
@@ -56,7 +56,7 @@ const MyOrders = () => {
     // setProceed(true);
     // axiosPrivate
     //   .put(
-    //     `http://localhost:5000/orders/${id}`,
+    //     `https://manufacturer-xpart.herokuapp.com/orders/${id}`,
     //     { isPaid: true },
     //     {
     //       headers: {
@@ -171,20 +171,6 @@ const MyOrders = () => {
                       </Button>
                     </div>
                   </div>
-                ) : isDelivered ? (
-                  <div className="d-flex align-items-center ">
-                    <div>
-                      <Button
-                        onClick={() => {
-                          handleCancelOrder(_id);
-                        }}
-                        className="rounded-pill"
-                        variant="primary"
-                      >
-                        Cancel Order
-                      </Button>
-                    </div>
-                  </div>
                 ) : null}
               </div>
             </div>
@@ -203,7 +189,7 @@ const MyOrders = () => {
     if (proceed) {
       setReload(true);
       axiosPrivate
-        .delete(`http://localhost:5000/orders/${cancelOrderId}`)
+        .delete(`https://manufacturer-xpart.herokuapp.com/orders/${cancelOrderId}`)
         .then(({data}) => {
           console.log(data);
           if(data.deletedCount){

@@ -25,7 +25,7 @@ const Subscribe = () => {
               <Form.Label>Your Feedback</Form.Label>
               <Form.Control as="textarea" rows={3} />
               <div>
-                  <button className="btn btn-success d-block mx-auto my-4">Submit</button>
+                  <button onClick={e => e.preventDefault()} className="btn btn-success d-block mx-auto my-4">Submit</button>
               </div>
             </Form.Group>
           </Form>

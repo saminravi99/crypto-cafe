@@ -1,34 +1,34 @@
-import "./App.css";
 import React, { createContext, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import RequireAuth from "../RequireAuth/RequireAuth";
-import { Toaster } from "react-hot-toast";
-import auth from "../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
-import useToken from "../hooks/useToken";
-import Payment from "../Payment/Payment";
-import Home from "../Home/Home";
-import Header from "../Header/Header";
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
-import Blogs from "../Blogs/Blogs";
-import Footer from "../Footer/Footer";
-import NotFound from "../NotFound/NotFound";
-import Dashboard from "../Dashboard/Dashboard";
+import { Toaster } from "react-hot-toast";
+import { Route, Routes } from "react-router-dom";
+import axiosPrivate from "../../api/axiosPrivate";
 import AddProduct from "../AddProduct/AddProduct";
-import Portfolio from "../Portfolio/Portfolio";
+import AddReview from "../AddReview/AddReview";
+import AllProducts from "../AllProducts/AllProducts";
+import Blogs from "../Blogs/Blogs";
+import ConfirmPurchase from "../ConfirmPurchase/ConfirmPurchase";
+import ContactUs from "../ContactUs/ContactUs";
+import Dashboard from "../Dashboard/Dashboard";
+import auth from "../firebase.init";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import Home from "../Home/Home";
+import useToken from "../hooks/useToken";
+import Login from "../Login/Login";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import ManageOrders from "../ManageOrders/ManageOrders";
 import ManageProduct from "../ManageProduct/ManageProduct";
-import AllProducts from "../AllProducts/AllProducts";
-import MakeAdmin from "../MakeAdmin/MakeAdmin";
-import MyProfile from "../MyProfile/MyProfile";
-import AddReview from "../AddReview/AddReview";
-import ContactUs from "../ContactUs/ContactUs";
 import MyOrders from "../MyOrders/MyOrders";
-import UpdateProfile from "../UpdateProfile/UpdateProfile";
+import MyProfile from "../MyProfile/MyProfile";
+import NotFound from "../NotFound/NotFound";
+import Payment from "../Payment/Payment";
+import Portfolio from "../Portfolio/Portfolio";
 import RequireAdmin from "../RequireAdmin/RequireAdmin";
-import ConfirmPurchase from "../ConfirmPurchase/ConfirmPurchase";
-import axiosPrivate from "../../api/axiosPrivate";
+import RequireAuth from "../RequireAuth/RequireAuth";
+import SignUp from "../SignUp/SignUp";
+import UpdateProfile from "../UpdateProfile/UpdateProfile";
+import "./App.css";
 
 export const AllContext = createContext();
 
@@ -41,7 +41,7 @@ function App() {
     if (authUser) {
       axiosPrivate
         .put(
-          `http://localhost:5000/user/${authUser?.email}`,
+          `https://manufacturer-xpart.herokuapp.com/user/${authUser?.email}`,
           { email: authUser?.email, role: "user" },
           {
             headers: {

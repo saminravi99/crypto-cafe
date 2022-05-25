@@ -17,7 +17,7 @@ const useAllUsers = (reload) => {
   // React Hook for Fetching All Books From The Server API
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/users", {
+    fetch("https://manufacturer-xpart.herokuapp.com/users", {
       headers: {
         "Content-Type": "application/json",
         email: `${authUser?.email}`,

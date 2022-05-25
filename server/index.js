@@ -213,7 +213,9 @@ const run = async () => {
     app.get("/orders", async (req, res) => {
       const orders = await ordersCollection.find({}).toArray();
       res.send(orders);
-    });
+    }); 
+    
+
 
     //API to update a order
     app.put("/orders/:id", async (req, res) => {

@@ -19,7 +19,7 @@ const useReviewDeliver = (reloadModal) => {
   // React Hook for Fetching All Books From The Server API
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/orders/${authUser?.email}/true`, {
+    fetch(`https://manufacturer-xpart.herokuapp.com/orders/${authUser?.email}/true`, {
       headers: {
         "Content-Type": "application/json",
         email: `${authUser?.email}`,
