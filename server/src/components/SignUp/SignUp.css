@@ -1,0 +1,18 @@
+.form-container {
+  font-family: "DM Sans";
+  font-weight: 700;
+}
+
+.form-container h1 {
+  font-weight: 700;
+}
+
+.sign-up-container {
+  width: 50% !important;
+}
+
+@media screen and (max-width: 768px) {
+  .sign-up-container {
+    width: 90% !important;
+  }
+}

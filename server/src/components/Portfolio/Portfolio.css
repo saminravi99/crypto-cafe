@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.hero {
+  width: 100%;
+  height: 150vh;
+  background: url(../../../public/bg1.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 100px 200px;
+}
+
+.download-btn {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 40px;
+  border-radius: 500px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  background-size: 152% 100%;
+  background: #fd4766;
+  border: 2px solid #fd4766;
+  text-decoration: none;
+}
+.download-btn:hover {
+  background: transparent;
+  border-color: #fd4766;
+  color: #fd4766;
+}
+.content {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+}
+.content .title {
+  color: #1f1f25;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: inline-block;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    120deg,
+    #1c99fe 20.69%,
+    #7644ff 50.19%,
+    #fd4766 79.69%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.content h1 {
+  color: #1f1f25;
+  font-size: 75px;
+  font-weight: 900;
+  line-height: 90px;
+  text-transform: inherit;
+  width: 70%;
+}
+.content h1 span {
+  color: #fd4766;
+}
+.content p {
+  width: 55%;
+  color: #757575;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    height: 100vh;
+  }
+  .content {
+    top: 30%;
+    left: 5%;
+  }
+  .content h1 {
+    font-size: 50px;
+    line-height: 60px;
+  }
+  .content p {
+    width: 80%;
+  }
+}
+
+.project-card {
+  width: 15%;
+  height: 100%;
+
+  background: #fff;
+  border-radius: 10px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.project-link {
+  text-decoration: none;
+}
+
+.my-project {
+  margin-left: 230px;
+}
+
+@media screen and (max-width: 767px) {
+  .project-card {
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 16%;
+  }
+  .my-intro{
+      width: 100% !important;
+  }
+  .project-img {
+    width: 100%;
+    height: 100%;
+  }
+  .content {
+    position: absolute;
+    top: 20%;
+    left: 8%;
+  }
+  .my-project {
+    margin-left: 0px;
+  }
+  .content h1 {
+    font-size: 30px;
+    line-height: 60px;
+  }
+  .content p {
+    width: 50%;
+  }
+  .hero {
+    width: 100%;
+    height: 200vh;
+    background: url(../../../public/bg1.png);
+    background-size: 0%;
+    background-repeat: no-repeat;
+    background-position: 100px 300px;
+  }
+  .download-btn {
+    font-size: 12px;
+    padding: 8px 20px;
+  }
+  .my-name{
+      width: 100% !important;
+  }
+}
+
+

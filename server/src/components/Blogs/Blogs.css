@@ -1,0 +1,48 @@
+.blog-container {
+  font-family: "DM Sans";
+}
+
+.blog-container h3 {
+  font-weight: 800;
+  width: 70%;
+  margin: 0 auto;
+}
+.blog-container p {
+  font-weight: 600;
+}
+.blog-container h5,
+h6 {
+  font-weight: 600;
+}
+.blog-container img {
+  max-height: 400px;
+}
+
+.blog-image {
+  width: 500px;
+}
+.blog-detail {
+  max-width: 700px;
+}
+
+.blog-detail p {
+  line-height: 2.5;
+}
+
+.review-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-container h3 {
+    width: 100%;
+  }
+  .blog-image {
+    max-width: 300px;
+  }
+  .blog-detail {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,148 @@
+/* .brand-logo{
+    height:80px;
+} */
+
+.logo-img-container {
+  width: 132px;
+  height: 50px;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* .navbar-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+} */
+
+.inactive-link {
+  font-family: "Ubuntu", sans-serif;
+
+  margin: 0, 30px;
+  font-weight: 700;
+  color: rgba(0, 21, 51, 0.6);
+  text-decoration: none;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 3px solid transparent;
+}
+
+.inactive-link:hover {
+  color: #0b1f3f;
+  border-bottom: 3px solid #0b1f3f;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+}
+
+.active-link {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0, 30px;
+  font-weight: 700;
+  color: #193766;
+  text-decoration: none;
+  border-bottom: 3px solid #193766;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+}
+
+.active-link:hover {
+  color: #0b1f3f;
+  border-bottom: 3px solid #0b1f3f;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+}
+
+.header-section {
+  position: relative;
+  background-image: linear-gradient(
+    180deg,
+    #e4efff,
+    rgba(228, 239, 255, 0.6),
+    rgba(228, 239, 255, 0)
+  );
+}
+
+.navbar{
+  z-index: 6;
+}
+
+.header-section-height {
+  height: 140vh;
+}
+
+.header-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.hero-container {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+}
+
+.login-btn {
+  background-color: #193766;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 20px;
+  font-family: "Ubuntu", sans-serif;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+  background-color: #0b1f3f;
+  color: #fff;
+}
+
+.user-name {
+  font-family: "Ubuntu", sans-serif;
+
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.sign-out-btn {
+  background-color: #193766 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-family: "Ubuntu", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .header-img {
+    display: none;
+    position: static;
+  }
+  .header-section-height {
+    height: 75vh;
+  }
+  .navbar-container {
+    position: static;
+  }
+  .hero-container {
+    position: static;
+  }
+  .navbar-mobile {
+    background-color: aliceblue;
+  }
+}

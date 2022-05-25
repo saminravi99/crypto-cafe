@@ -1,0 +1,17 @@
+.subscribe-form{
+    width: 75%;
+}
+
+.subscribe-img{
+    width:75%;
+}
+
+@media screen and (max-width: 768px) {
+    .subscribe-form {
+        width: 100%;
+    }
+    .subscribe-img {
+        width: 100%;
+    }
+}
+    

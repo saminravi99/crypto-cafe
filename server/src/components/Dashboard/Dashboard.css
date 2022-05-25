@@ -1,0 +1,117 @@
+.dashboard-sidebar{
+    width: 300px;
+    height: 100vh;
+    border-radius: 20px;
+  
+}
+
+.right-dashboard{
+  width: 75%;
+}
+
+.dashboard-inactive-link {
+  font-family: "Ubuntu", sans-serif;
+    font-size: 24px;
+  /* margin: 0, 30px; */
+  font-weight: 700;
+  color: rgba(0, 21, 51, 0.6);
+  text-decoration: none;
+
+  border-bottom: 3px solid transparent;
+}
+
+.dashboard-inactive-link:hover {
+  color: #0b1f3f;
+    font-size: 24px;
+
+  border-bottom: 3px solid #0b1f3f;
+  
+}
+
+.dashboard-active-link {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0, 30px;
+    font-size: 24px;
+
+  font-weight: 700;
+  color: #193766;
+  text-decoration: none;
+  border-bottom: 3px solid #193766;
+ 
+}
+
+.dashboard-active-link:hover {
+  color: #0b1f3f;
+    font-size: 24px;
+
+  border-bottom: 3px solid #0b1f3f;
+ 
+}
+
+.hidden-sidebar{
+  position: absolute;
+  left: -300px;
+  
+}
+
+.visible-sidebar{
+  position: absolute;
+  left: 20px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  width: 300px;
+  padding: 20px;
+}
+  
+
+@media screen and (max-width: 768px) {
+  .dashboard-sidebar{
+    width: 100%;
+    height: 100vh;
+    border-radius: 20px;
+  }
+  .dashboard-inactive-link {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(0, 21, 51, 0.6);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+  }
+  .dashboard-inactive-link:hover {
+    color: #0b1f3f;
+    font-size: 24px;
+    border-bottom: 3px solid #0b1f3f;
+  }
+  .dashboard-active-link {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #193766;
+    text-decoration: none;
+    border-bottom: 3px solid #193766;
+  }
+  .dashboard-active-link:hover {
+    color: #0b1f3f;
+    font-size: 24px;
+    border-bottom: 3px solid #0b1f3f;
+  }
+  .hidden-sidebar{
+    position: absolute;
+    left: -300px;
+  }
+  .visible-sidebar{
+    position: absolute;
+    left: 20px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 100;
+  }
+  .right-dashboard{
+    width: 100%;
+    
+  }
+}
+  
+

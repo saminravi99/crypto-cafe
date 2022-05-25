@@ -1,0 +1,13 @@
+.user-info{
+    width: 50% !important;
+}
+
+.user-photo{
+    width: 130px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .user-info{
+        width: 80% !important;
+    }
+}

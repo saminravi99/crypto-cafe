@@ -1,0 +1,47 @@
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #4d77ff;
+}
+
+.social-btn button {
+  width: 60%;
+  height: 50px !important;
+  border-radius: 10px !important;
+  font-family: "DM Sans";
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  line-height: 50px !important;
+  cursor: pointer !important;
+  border: none !important;
+  margin: 10px auto;
+}
+
+.facebook-btn {
+  background-color: #4d77ff !important;
+  color: white !important;
+}
+
+.github-btn {
+  background-color: #333 !important;
+  color: white !important;
+}
+
+.google-btn {
+  background-color: #dd4b39 !important;
+  color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+  .socials {
+    width: 100%;
+  }
+  .social-btn button {
+    width: 100% !important;
+  }
+
+  .social-btn-container {
+    width: 100% !important;
+  }
+}
