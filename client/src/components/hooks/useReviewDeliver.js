@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import auth from "../firebase.init";
 
 
-const useReviewDeliver = () => {
+const useReviewDeliver = (reloadModal) => {
   //Declaring State
   const [reviewsDeliver, setReviewsDeliver] = useState([]);
   console.log(reviewsDeliver);
@@ -31,7 +31,7 @@ const useReviewDeliver = () => {
         setReviewsDeliver(json);
         setIsLoading(false);
       });
-  }, [pathname, authUser]);
+  }, [pathname, authUser, reloadModal]);
 
   return [reviewsDeliver, setReviewsDeliver, isLoading];
 };

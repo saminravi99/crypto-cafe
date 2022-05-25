@@ -4,24 +4,39 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import useReviewDeliver from '../hooks/useReviewDeliver';
 import Loading from '../Loading/Loading';
+import ReviewModal from './ReviewModal';
 
 const AddReview = () => {
-    const [reviewsDeliver, setReviewsDeliver, isLoading] = useReviewDeliver();
+  const [reloadModal, setReloadModal] = React.useState(false);
+    const [reviewsDeliver, setReviewsDeliver, isLoading] = useReviewDeliver(reloadModal);
+
 
     console.log(reviewsDeliver);
 
   const [authUser] = useAuthState(auth);
 
+  const [modalShowReview, setModalShowReview] = React.useState(false);
+  const [reviewOrderId, setReviewOrderId] = React.useState("");
+
+
+
+  const handleGiveReview = (id) => {
+    console.log(id);
+    setModalShowReview(true);
+    setReviewOrderId(id);
+  }
+
     const reversedReviews = [...reviewsDeliver].reverse();
 
     const singleReview = reversedReviews.map(
       ({
+        _id,
         toolName,
         toolPrice,
         quantity,
         totalPrice,
         isDelivered,
-        isPaid,
+        isReviewed,
       }, index) => {
         return (
           <Card className="my-3">
@@ -44,14 +59,13 @@ const AddReview = () => {
                       {index + 1}. {toolName}
                     </h2>
                   </div>
-                    <p className="mb-0 ms-3">
-                      <small>
-                        <i className="px-3 py-1 me-3  bg-success text-white rounded-pill">
-                          Delivered
-                        </i>
-                      </small>
-                    </p>
-                 
+                  <p className="mb-0 ms-3">
+                    <small>
+                      <i className="px-3 py-1 me-3  bg-success text-white rounded-pill">
+                        Delivered
+                      </i>
+                    </small>
+                  </p>
                 </div>
               </Card.Title>
               <Card.Text>
@@ -67,21 +81,22 @@ const AddReview = () => {
               </Card.Text>
               <div className="d-flex justify-content-around">
                 <div>
-                  {isPaid ? (
-                    <p className="px-3 py-1 bg-success text-white rounded-pill">
-                      <strong>Paid</strong>
-                    </p>
-                  ) : (
-                    <Button variant="success">Pay Now</Button>
-                  )}
-                </div>
-                <div>
                   {isDelivered && (
                     <div className="d-flex align-items-center ">
                       <div>
-                        <Button className="rounded-pill" variant="primary">
-                          Give A Review
-                        </Button>
+                        {isReviewed ? (
+                          <p className="text-white rounded-pill bg-success px-4 py-2">
+                            Thankyou For Reviewing This Product
+                          </p>
+                        ) : (
+                          <Button
+                            onClick={() => handleGiveReview(_id)}
+                            className="rounded-pill"
+                            variant="primary"
+                          >
+                            Give A Review
+                          </Button>
+                        )}
                       </div>
                     </div>
                   )}
@@ -95,7 +110,9 @@ const AddReview = () => {
 
     return (
       <div>
-        <h3 className="text-center text-success mb-4">Give Your Valuable Reviews Here</h3>
+        <h3 className="text-center text-success mb-4">
+          Give Your Valuable Reviews Here
+        </h3>
         <div>
           {isLoading ? (
             <Loading></Loading>
@@ -103,6 +120,16 @@ const AddReview = () => {
             <div className="container">{singleReview}</div>
           )}
         </div>
+        <ReviewModal
+          reviewsDeliver={reviewsDeliver}
+          reviewOrderId={reviewOrderId}
+          reloadModal={reloadModal}
+          show={modalShowReview}
+          setReloadModal={setReloadModal}
+          onHide={() => {
+            setModalShowReview(false);
+          }}
+        ></ReviewModal>
       </div>
     );
 };

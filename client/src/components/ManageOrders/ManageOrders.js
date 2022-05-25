@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import axiosPrivate from "../../api/axiosPrivate";
 import auth from "../firebase.init";
 import useAllOrders from "../hooks/useAllOrders";
+import useTools from "../hooks/useTools";
 import Loading from "../Loading/Loading";
 
 const ManageOrders = () => {
@@ -13,8 +14,9 @@ const ManageOrders = () => {
   const [reload, setReload] = React.useState(false);
 
   const [allOrders, setAllOrders, isLoading] = useAllOrders(reload);
+  const [tools, setTools] = useTools(reload);
 
-  const handleDeliver = (id) => {
+  const handleDeliver = async (id, toolName, requiredQuantity, quantity) => {
     console.log(id);
     setReload(true);
     axiosPrivate
@@ -27,12 +29,34 @@ const ManageOrders = () => {
           },
         }
       )
-      .then(({data}) => {
-        if(data.modifiedCount){
+      .then(({ data }) => {
+        if (data.modifiedCount) {
           console.log(data);
-
-          setReload(false);
-          toast.success("Order Delivered");
+          // find the tool from trools array by toolName of that orders
+          const requiredTool = tools.find((tool) => tool.toolName === toolName);
+          console.log(requiredTool.toolName);
+          // update the tool quantity
+          const newTool = {
+            availableQuantity: (
+              parseInt(requiredTool.availableQuantity) -
+              parseInt(requiredQuantity)
+            ).toString(),
+          };
+          fetch(`http://localhost:5000/product/${requiredTool._id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              email: `${authUser?.email}`,
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(newTool),
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              console.log(json);
+              setReload(false);
+              toast.success("Order Delivered");
+            });
         }
       });
   };
@@ -51,7 +75,7 @@ const ManageOrders = () => {
         availableQuantity,
         totalPrice,
         isDelivered,
-
+        requiredQuantity,
         isPaid,
       },
       index
@@ -105,7 +129,9 @@ const ManageOrders = () => {
               </p>
             ) : (
               <button
-                onClick={() => handleDeliver(_id)}
+                onClick={() =>
+                  handleDeliver(_id, toolName, requiredQuantity, quantity)
+                }
                 className="btn btn-primary d-block mx-auto rounded-pill"
               >
                 <small>Deliver</small>

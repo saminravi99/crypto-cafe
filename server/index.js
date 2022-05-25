@@ -252,15 +252,16 @@ const run = async () => {
 
     //API to post a review
     app.post("/review", verifyJWT, async (req, res) => {
-      const decodedEmail = req.decoded.email;
-      const email = req.headers.email;
-      if (email === decodedEmail) {
-        const review = req.body;
-        await reviewsCollection.insertOne(review);
-        res.send(review);
-      } else {
-        res.send("Unauthorized access");
-      }
+      // const decodedEmail = req.decoded.email;
+      // const email = req.headers.email;
+      const review = req.body;
+      const result = await reviewsCollection.insertOne(review);
+      res.send(result);
+      // if (email === decodedEmail) {
+        
+      // } else {
+      //   res.send("Unauthorized access");
+      // }
     });
 
     //API to post a product
@@ -279,7 +280,7 @@ const run = async () => {
       // const email = req.headers.email;
       const id = req.params.id;
       const result = await toolsCollection.deleteOne({ _id: ObjectId(id) });
-      res.send(result);
+      res.send(result); 
      
     });
 
