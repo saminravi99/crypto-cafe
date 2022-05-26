@@ -1,6 +1,10 @@
 import React, { createContext, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Toaster } from "react-hot-toast";
+import {
+  QueryClient,
+  QueryClientProvider
+} from "react-query";
 import { Route, Routes } from "react-router-dom";
 import axiosPrivate from "../../api/axiosPrivate";
 import AddProduct from "../AddProduct/AddProduct";
@@ -26,11 +30,13 @@ import Payment from "../Payment/Payment";
 import Portfolio from "../Portfolio/Portfolio";
 import RequireAdmin from "../RequireAdmin/RequireAdmin";
 import RequireAuth from "../RequireAuth/RequireAuth";
+import RequireNormalUser from "../RequireNormalUser/RequireNormalUser";
 import SignUp from "../SignUp/SignUp";
 import UpdateProfile from "../UpdateProfile/UpdateProfile";
 import "./App.css";
 
 export const AllContext = createContext();
+const queryClient = new QueryClient();
 
 function App() {
   //React Firebase Hook
@@ -45,7 +51,7 @@ function App() {
           { email: authUser?.email, role: "user" },
           {
             headers: {
-              email: authUser.email,
+              email: `${authUser?.email}`,
             },
           }
         )
@@ -66,118 +72,128 @@ function App() {
   // const [books] = useBooks();
 
   return (
-    <AllContext.Provider value={{}}>
-      <div>
+    <QueryClientProvider client={queryClient}>
+      <AllContext.Provider value={{}}>
         <div>
-          <Header></Header>
+          <div>
+            <Header></Header>
+          </div>
+          <Toaster></Toaster>
+
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/payment/:id"
+              element={
+                <RequireAuth>
+                  <RequireNormalUser>
+                    <Payment />
+                  </RequireNormalUser>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/confirm-purchase/:id"
+              element={
+                <RequireAuth>
+                  <RequireNormalUser>
+                    <ConfirmPurchase />
+                  </RequireNormalUser>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/dashboard"
+              element={
+                <RequireAuth>
+                  <Dashboard></Dashboard>
+                </RequireAuth>
+              }
+            >
+              <Route
+                path="manage-product"
+                element={
+                  <RequireAdmin>
+                    <ManageProduct></ManageProduct>
+                  </RequireAdmin>
+                }
+              ></Route>
+              <Route
+                path="my-orders"
+                index
+                element={
+                  <RequireAuth>
+                    <RequireNormalUser>
+                      <MyOrders></MyOrders>
+                    </RequireNormalUser>
+                  </RequireAuth>
+                }
+              ></Route>
+              <Route
+                path="make-admin"
+                element={
+                  <RequireAdmin>
+                    <MakeAdmin></MakeAdmin>
+                  </RequireAdmin>
+                }
+              ></Route>
+              <Route
+                path="my-profile"
+                element={
+                  <RequireAuth>
+                    <MyProfile></MyProfile>
+                  </RequireAuth>
+                }
+              ></Route>
+              <Route
+                path="add-review"
+                element={
+                  <RequireAuth>
+                    <RequireNormalUser>
+                      <AddReview></AddReview>
+                    </RequireNormalUser>
+                  </RequireAuth>
+                }
+              ></Route>
+
+              <Route
+                path="add-product"
+                element={
+                  <RequireAdmin>
+                    <AddProduct />
+                  </RequireAdmin>
+                }
+              ></Route>
+              <Route
+                path="manage-orders"
+                element={
+                  <RequireAdmin>
+                    <ManageOrders></ManageOrders>
+                  </RequireAdmin>
+                }
+              ></Route>
+            </Route>
+
+            <Route path="/blogs" element={<Blogs />}></Route>
+            <Route path="/portfolio" element={<Portfolio />}></Route>
+            <Route path="/all-products" element={<AllProducts />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/sign-up" element={<SignUp />}></Route>
+            <Route path="/contact" element={<ContactUs />}></Route>
+            <Route
+              path="/edit-profile"
+              element={
+                <RequireAuth>
+                  <UpdateProfile></UpdateProfile>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+          <Footer></Footer>
         </div>
-        <Toaster></Toaster>
-
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/payment/:id"
-            element={
-              <RequireAuth>
-                <Payment />
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            path="/confirm-purchase/:id"
-            element={
-              <RequireAuth>
-                <ConfirmPurchase />
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <Dashboard></Dashboard>
-              </RequireAuth>
-            }
-          >
-            <Route
-              path="manage-product"
-              element={
-                <RequireAdmin>
-                  <ManageProduct></ManageProduct>
-                </RequireAdmin>
-              }
-            ></Route>
-            <Route
-              path="my-orders"
-              index
-              element={
-                <RequireAuth>
-                  <MyOrders></MyOrders>
-                </RequireAuth>
-              }
-            ></Route>
-            <Route
-              path="make-admin"
-              element={
-                <RequireAdmin>
-                  <MakeAdmin></MakeAdmin>
-                </RequireAdmin>
-              }
-            ></Route>
-            <Route
-              path="my-profile"
-              element={
-                <RequireAuth>
-                  <MyProfile></MyProfile>
-                </RequireAuth>
-              }
-            ></Route>
-            <Route
-              path="add-review"
-              element={
-                <RequireAuth>
-                  <AddReview></AddReview>
-                </RequireAuth>
-              }
-            ></Route>
-
-            <Route
-              path="add-product"
-              element={
-                <RequireAdmin>
-                  <AddProduct />
-                </RequireAdmin>
-              }
-            ></Route>
-            <Route
-              path="manage-orders"
-              element={
-                <RequireAdmin>
-                  <ManageOrders></ManageOrders>
-                </RequireAdmin>
-              }
-            ></Route>
-          </Route>
-
-          <Route path="/blogs" element={<Blogs />}></Route>
-          <Route path="/portfolio" element={<Portfolio />}></Route>
-          <Route path="/all-products" element={<AllProducts />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/sign-up" element={<SignUp />}></Route>
-          <Route path="/contact" element={<ContactUs />}></Route>
-          <Route
-            path="/edit-profile"
-            element={
-              <RequireAuth>
-                <UpdateProfile></UpdateProfile>
-              </RequireAuth>
-            }
-          ></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-        <Footer></Footer>
-      </div>
-    </AllContext.Provider>
+      </AllContext.Provider>
+    </QueryClientProvider>
   );
 }
 

@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosPrivate from "../../api/axiosPrivate";
 import auth from "../firebase.init";
+import Loading from "../Loading/Loading";
 import "./ConfirmPurchase.css";
 
 const ConfirmPurchase = () => {
@@ -18,12 +19,16 @@ const ConfirmPurchase = () => {
   const [tool, setTool] = useState([]);
   const [reload, setReload] = useState(false);
   const [totalPrice, setTotalPrice] = useState("");
+  const [address, setAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  console.log(address, phoneNumber);
   const handleGoBack = () => {
     navigate(-1);
     window.scrollTo(0, 0);
   };
 
   useEffect(() => {
+    setReload(true);
     axiosPrivate
       .get(`https://manufacturer-xpart.herokuapp.com/tools/${params.id}`, {
         headers: {
@@ -34,6 +39,7 @@ const ConfirmPurchase = () => {
         const { data } = response;
         setTool(data);
         console.log(data);
+        setReload(false);
       });
   }, [authUser, params.id]);
 
@@ -80,34 +86,39 @@ const ConfirmPurchase = () => {
     minOrder,
     requiredQuantity,
     totalPrice,
+    address,
+    phoneNumber
   };
 
+  console.log(userOrder);
   const handleSubmit = () => {
-    
-    axiosPrivate
-      .post(
-        "https://manufacturer-xpart.herokuapp.com/orders",
-        userOrder,
-        {
+   if(address && phoneNumber) {
+      axiosPrivate
+        .post("https://manufacturer-xpart.herokuapp.com/orders", userOrder, {
           headers: {
             email: authUser?.email,
           },
-        }
-      )
-      .then((response) => {
-        const { data } = response;
-        console.log(data);
-        if (data.insertedId) {
-          console.log("Order added to database");
-          setReload(!reload);
-          navigate("/dashboard/my-orders");
-          window.scrollTo(0, 0);
-          toast.success("Order Placed Successfully");
-
-        }
-      });
+        })
+        .then((response) => {
+          const { data } = response;
+          console.log(data);
+          if (data.insertedId) {
+            console.log("Order added to database");
+            setReload(!reload);
+            navigate("/dashboard/my-orders");
+            window.scrollTo(0, 0);
+            toast.success("Order Placed Successfully");
+          }
+        });
+   }
+    else{
+      toast.error("Please fill all the details");
+    }
   };
   
+  if(reload){
+    return <Loading></Loading>
+  }
 
   return (
     <div>
@@ -213,6 +224,7 @@ const ConfirmPurchase = () => {
                 {error && requiredQuantity ? error : null}
               </p>
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label className="checkout-labels">
                 Total Price (BDT)
@@ -236,6 +248,30 @@ const ConfirmPurchase = () => {
                 placeholder="Number of Stock"
                 required
               />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Your Contact Number</Form.Label>
+              <Form.Control
+                value={phoneNumber}
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
+                required
+                type="number"
+                placeholder="Your Phone Number"
+              />
+            </Form.Group>
+            <Form.Group
+              required
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Your Address</Form.Label>
+              <Form.Control as="textarea" rows={3} />
             </Form.Group>
           </Form>
         </div>

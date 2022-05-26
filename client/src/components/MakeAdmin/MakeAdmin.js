@@ -13,15 +13,18 @@ const MakeAdmin = () => {
   const [reload, setReload] = useState(false);
 
   const [allUsers, setAllUsers, isLoading] = useAllUsers(reload);
+  console.log(allUsers);
   const [allAdmin] = useAllAdmin(reload);
 
   const handleMakeAdmin = (email) => {
+    console.log(email);
     setReload(true);
     fetch(`https://manufacturer-xpart.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        email: `${authUser?.email}`,
       },
     })
       .then((res) => res.json())
@@ -44,6 +47,7 @@ const MakeAdmin = () => {
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        email: `${authUser?.email}`,
       },
     })
       .then((res) => res.json())
@@ -80,9 +84,11 @@ const MakeAdmin = () => {
       </tr>
     );
   });
-  const singleUser = allUsers.map(({ email, role }, index) => {
+  const singleUser = allUsers.map(({_id, email, role }, index) => {
     return (
-      <tr>
+      <tr 
+      key={_id}
+      >
         <td className="text-center">
           <small>{index + 1}</small>
         </td>

@@ -81,7 +81,7 @@ const AddReview = () => {
               </Card.Text>
               <div className="d-flex justify-content-around">
                 <div>
-                  {isDelivered && (
+                  {/* {isDelivered && ( */}
                     <div className="d-flex align-items-center ">
                       <div>
                         {isReviewed ? (
@@ -99,7 +99,7 @@ const AddReview = () => {
                         )}
                       </div>
                     </div>
-                  )}
+                  {/* )} */}
                 </div>
               </div>
             </Card.Body>

@@ -53,23 +53,7 @@ const MyOrders = () => {
   const handlePayment = (id) => {
     navigate(`/payment/${id}`);
     window.scrollTo(0, 0);
-    // setProceed(true);
-    // axiosPrivate
-    //   .put(
-    //     `https://manufacturer-xpart.herokuapp.com/orders/${id}`,
-    //     { isPaid: true },
-    //     {
-    //       headers: {
-    //         email: authUser.email,
-    //       },
-    //     }
-    //   )
-    //   .then(({ data }) => {
-    //     if (data.modifiedCount) {
-    //       setReload(true);
-    //       toast.success("Payment Successful");
-    //     }
-    //   });
+    
   }
 
   console.log(reversedOrders);
@@ -189,7 +173,12 @@ const MyOrders = () => {
     if (proceed) {
       setReload(true);
       axiosPrivate
-        .delete(`https://manufacturer-xpart.herokuapp.com/orders/${cancelOrderId}`)
+        .delete(`https://manufacturer-xpart.herokuapp.com/orders/${cancelOrderId}`,{
+          headers: {
+            "Content-Type": "application/json",
+            email: `${authUser?.email}`,
+          },
+        })
         .then(({data}) => {
           console.log(data);
           if(data.deletedCount){
@@ -199,7 +188,7 @@ const MyOrders = () => {
       setCancelOrderId("");
       setProceed(false);
     }
-  }, [proceed, cancelOrderId, boolean]);
+  }, [proceed, cancelOrderId, boolean, authUser?.email]);
 
   const handleCancelOrder = (id) => {
     console.log(id);

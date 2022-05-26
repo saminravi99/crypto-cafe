@@ -120,7 +120,7 @@ a {
 .my-info{
   position: absolute;
   right: 200px;
-  top: -70px;
+  top: -120px;
 }
 
 @media screen and (max-width: 767px) {
@@ -169,7 +169,7 @@ a {
   }
   .my-info{
     position: static !important;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 20px;
   }
 }

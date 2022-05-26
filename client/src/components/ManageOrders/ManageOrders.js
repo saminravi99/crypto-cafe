@@ -84,6 +84,8 @@ const ManageOrders = () => {
         isDelivered,
         requiredQuantity,
         isPaid,
+        phoneNumber,
+        address
       },
       index
     ) => {
@@ -109,10 +111,12 @@ const ManageOrders = () => {
             <small>{userEmail}</small>
           </td>
           <td className="text-center">
-            <small>Dhaka, Bangladesh</small>
+            <small>{address ? address : "Dhaka, Bangladesh"}</small>
           </td>
           <td className="text-center">
-            <small>0195405915</small>
+            <small>{
+              phoneNumber ? phoneNumber : "01954059415"
+              }</small>
           </td>
 
           <td className="text-center ">
@@ -137,7 +141,13 @@ const ManageOrders = () => {
             ) : (
               <button
                 onClick={() =>
-                  handleDeliver(_id, toolName, requiredQuantity, quantity, isPaid)
+                  handleDeliver(
+                    _id,
+                    toolName,
+                    requiredQuantity,
+                    quantity,
+                    isPaid
+                  )
                 }
                 className="btn btn-primary d-block mx-auto rounded-pill"
               >
